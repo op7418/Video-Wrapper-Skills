@@ -2,179 +2,179 @@
 
 # 🎬 Video Wrapper
 
-**为访谈/播客视频添加综艺风格视觉包装**
+**Add Variety Show Style Visual Effects to Interview/Podcast Videos**
 
-AI 智能分析字幕内容，自动生成特效建议，一键渲染专业级视觉效果
+AI-powered subtitle analysis, automatic effect suggestions, one-click professional visual rendering
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![Claude Skills](https://img.shields.io/badge/Claude-Skills-blueviolet.svg)](https://claude.ai)
 
-[快速开始](#-快速开始) • [功能特性](#-功能特性) • [效果展示](#-效果展示) • [使用场景](#-使用场景) • [架构文档](./ARCHITECTURE.md)
+[Quick Start](#-quick-start) • [Features](#-features) • [Demo](#-demo) • [Use Cases](#-use-cases) • [Architecture](./ARCHITECTURE.md)
 
-[English Documentation](./README_EN.md)
+[中文文档](./README_CN.md)
 
 </div>
 
 ---
 
-## ✨ 功能特性
+## ✨ Features
 
 <table>
 <tr>
 <td width="50%">
 
-### 🎨 8 种视觉组件
-- **花字高亮** - 短语概括核心观点
-- **人物条** - 显示嘉宾姓名职位
-- **章节标题** - 话题切换标题卡
-- **名词卡片** - 专业术语解释
-- **金句卡片** - 精彩言论突出
-- **数据动画** - 数字动态展示
-- **要点列表** - 核心观点总结
-- **社交条** - 关注引导信息
+### 🎨 8 Visual Components
+- **Key Phrases** - Short phrases highlighting core ideas
+- **Lower Thirds** - Display guest name and title
+- **Chapter Titles** - Topic transition title cards
+- **Term Cards** - Professional terminology explanations
+- **Quote Callouts** - Highlight memorable quotes
+- **Animated Stats** - Dynamic number displays
+- **Bullet Points** - Core takeaways summary
+- **Social Bars** - Follow call-to-action
 
 </td>
 <td width="50%">
 
-### 🎭 4 种视觉主题
-- **Notion** 🟡 - 温暖知识风格
-- **Cyberpunk** 💜 - 霓虹未来感
-- **Apple** ⚪ - 极简商务风格
-- **Aurora** 🌈 - 渐变流光效果
+### 🎭 4 Visual Themes
+- **Notion** 🟡 - Warm knowledge style
+- **Cyberpunk** 💜 - Neon futuristic
+- **Apple** ⚪ - Minimalist business
+- **Aurora** 🌈 - Gradient flowing
 
-### 🤖 智能工作流
-1. 📝 AI 分析字幕内容
-2. 💡 自动生成特效建议
-3. ✅ 用户审批确认
-4. 🎬 一键渲染视频
+### 🤖 Smart Workflow
+1. 📝 AI analyzes subtitle content
+2. 💡 Auto-generates effect suggestions
+3. ✅ User approves configuration
+4. 🎬 One-click video rendering
 
 </td>
 </tr>
 </table>
 
-### 🛠️ 双渲染引擎
+### 🛠️ Dual Rendering Engines
 
-| 引擎 | 技术栈 | 特点 |
-|------|--------|------|
-| **Browser** 🌐 | Playwright + HTML/CSS/Anime.js | 高质量，支持复杂动画（推荐） |
-| **PIL** 🎨 | Python PIL | 纯 Python，无需浏览器 |
+| Engine | Tech Stack | Features |
+|--------|-----------|----------|
+| **Browser** 🌐 | Playwright + HTML/CSS/Anime.js | High quality, complex animations (Recommended) |
+| **PIL** 🎨 | Python PIL | Pure Python, no browser required |
 
 ---
 
-## 🚀 快速开始
+## 🚀 Quick Start
 
-### 安装 Skill
+### Installation
 
-**方式一：一键安装（推荐）**
+**Method 1: One-Click Install (Recommended)**
 
 ```bash
 npx skills add https://github.com/op7418/Video-Wrapper-Skills
 ```
 
-**方式二：手动安装**
+**Method 2: Manual Install**
 
 ```bash
-# 克隆到 Claude Skills 目录
+# Clone to Claude Skills directory
 cd ~/.claude/skills/
 git clone https://github.com/op7418/Video-Wrapper-Skills.git video-wrapper
 cd video-wrapper
 
-# 安装依赖
+# Install dependencies
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
 playwright install chromium
 ```
 
-### 使用
+### Usage
 
-**在 Claude Code 中**
+**In Claude Code**
 
 ```bash
 /video-wrapper interview.mp4 subtitles.srt
 ```
 
-Claude 会：
-1. 📊 分析字幕，识别关键信息
-2. 💡 生成特效建议（人物条、花字、名词卡片等）
-3. 📝 展示 Markdown 格式建议供审批
-4. ✅ 确认后自动渲染输出视频
+Claude will:
+1. 📊 Analyze subtitles, identify key information
+2. 💡 Generate effect suggestions (lower thirds, key phrases, term cards, etc.)
+3. 📝 Present suggestions in Markdown for review
+4. ✅ Auto-render output video after confirmation
 
-**命令行使用**
+**Command Line**
 
 ```bash
-# 有配置文件时直接渲染
+# Direct rendering with config file
 python src/video_processor.py video.mp4 subs.srt config.json output.mp4
 
-# 指定渲染器
-python src/video_processor.py video.mp4 subs.srt config.json -r browser  # 浏览器渲染
-python src/video_processor.py video.mp4 subs.srt config.json -r pil      # PIL 渲染
+# Specify renderer
+python src/video_processor.py video.mp4 subs.srt config.json -r browser  # Browser
+python src/video_processor.py video.mp4 subs.srt config.json -r pil      # PIL
 ```
 
 ---
 
-## 🎥 效果展示
+## 🎥 Demo
 
-> 💡 以下展示不同主题和组件的视觉效果
+> 💡 Visual effects showcase across different themes and components
 
-### 主题风格对比
-
-<table>
-<tr>
-<td align="center" width="25%"><strong>Notion 主题</strong><br/>温暖知识风</td>
-<td align="center" width="25%"><strong>Cyberpunk 主题</strong><br/>霓虹未来感</td>
-<td align="center" width="25%"><strong>Apple 主题</strong><br/>极简优雅</td>
-<td align="center" width="25%"><strong>Aurora 主题</strong><br/>渐变流光</td>
-</tr>
-<tr>
-<td align="center">🟡 教育/知识分享</td>
-<td align="center">💜 科技/前沿话题</td>
-<td align="center">⚪ 商务/专业访谈</td>
-<td align="center">🌈 创意/艺术内容</td>
-</tr>
-</table>
-
-### 组件效果示例
-
-| 组件 | 效果预览 | 使用场景 |
-|------|---------|----------|
-| 🏷️ **花字** | _[效果图占位]_ | 嘉宾说到"通用人工智能"时，屏幕上方显示"AI发展是平滑曲线" |
-| 👤 **人物条** | _[效果图占位]_ | 视频开始时展示"Dario Amodei · CEO · Anthropic" |
-| 📖 **名词卡片** | _[效果图占位]_ | 首次提到"摩尔定律"时，自动弹出解释卡片 |
-| 💬 **金句** | _[效果图占位]_ | 精彩观点"AI的发展是一个非常平滑的指数曲线"突出显示 |
-
----
-
-## 📋 使用场景
+### Theme Comparison
 
 <table>
 <tr>
+<td align="center" width="25%"><strong>Notion Theme</strong><br/>Warm Knowledge</td>
+<td align="center" width="25%"><strong>Cyberpunk Theme</strong><br/>Neon Futuristic</td>
+<td align="center" width="25%"><strong>Apple Theme</strong><br/>Minimalist Elegant</td>
+<td align="center" width="25%"><strong>Aurora Theme</strong><br/>Gradient Flow</td>
+</tr>
+<tr>
+<td align="center">🟡 Education/Knowledge</td>
+<td align="center">💜 Tech/Innovation</td>
+<td align="center">⚪ Business/Professional</td>
+<td align="center">🌈 Creative/Artistic</td>
+</tr>
+</table>
+
+### Component Examples
+
+| Component | Preview | Use Case |
+|-----------|---------|----------|
+| 🏷️ **Key Phrase** | _[Preview placeholder]_ | When guest mentions "Artificial General Intelligence", show "AI Development is Smooth Curve" |
+| 👤 **Lower Third** | _[Preview placeholder]_ | Show "Dario Amodei · CEO · Anthropic" at video start |
+| 📖 **Term Card** | _[Preview placeholder]_ | Auto popup explanation when "Moore's Law" first mentioned |
+| 💬 **Quote** | _[Preview placeholder]_ | Highlight "AI development is a very smooth exponential curve" |
+
+---
+
+## 📋 Use Cases
+
+<table>
+<tr>
 <td width="33%">
 
-### 🎓 教育内容
-- 知识分享视频
-- 课程录制
-- 在线讲座
-- 术语解释需求多
+### 🎓 Educational Content
+- Knowledge sharing videos
+- Course recordings
+- Online lectures
+- Heavy terminology needs
 
 </td>
 <td width="33%">
 
-### 🎙️ 访谈播客
-- 人物专访
-- 圆桌讨论
-- 行业对话
-- 需要嘉宾信息展示
+### 🎙️ Interviews & Podcasts
+- Personal interviews
+- Panel discussions
+- Industry dialogues
+- Guest info display needs
 
 </td>
 <td width="33%">
 
-### 📱 社交媒体
-- YouTube 长视频
-- B站 UP主内容
-- 播客节目
-- 需要精彩片段突出
+### 📱 Social Media
+- YouTube long-form
+- B站 content
+- Podcast shows
+- Highlight clips needed
 
 </td>
 </tr>
@@ -182,31 +182,31 @@ python src/video_processor.py video.mp4 subs.srt config.json -r pil      # PIL �
 
 ---
 
-## 🎨 主题系统
+## 🎨 Theme System
 
-根据内容风格选择合适主题：
+Choose the right theme based on content style:
 
 ```json
 {
-  "theme": "notion"  // 或 "cyberpunk", "apple", "aurora"
+  "theme": "notion"  // or "cyberpunk", "apple", "aurora"
 }
 ```
 
-| 主题 | 色系 | 特点 | 适用内容 |
-|------|------|------|----------|
-| **Notion** | 暖黄 + 蓝色 | 柔和渐变，知识感 | 教育、知识分享、课程 |
-| **Cyberpunk** | 霓虹紫 + 青色 | 高对比，科技感 | 技术、科幻、前沿话题 |
-| **Apple** | 黑白灰 | 极简，专业感 | 商务、企业、正式访谈 |
-| **Aurora** | 渐变彩虹 | 流光溢彩，艺术感 | 创意、设计、艺术内容 |
+| Theme | Color Scheme | Characteristics | Best For |
+|-------|--------------|----------------|----------|
+| **Notion** | Warm Yellow + Blue | Soft gradients, knowledge-focused | Education, knowledge sharing, courses |
+| **Cyberpunk** | Neon Purple + Cyan | High contrast, tech-forward | Tech, sci-fi, innovation topics |
+| **Apple** | Black/White/Gray | Minimal, professional | Business, corporate, formal interviews |
+| **Aurora** | Rainbow Gradient | Flowing light, artistic | Creative, design, artistic content |
 
 ---
 
-## 🧩 组件配置
+## 🧩 Component Configuration
 
-### 完整配置示例
+### Complete Configuration Example
 
 <details>
-<summary>展开查看完整 JSON 配置</summary>
+<summary>Expand to view full JSON config</summary>
 
 ```json
 {
@@ -214,9 +214,9 @@ python src/video_processor.py video.mp4 subs.srt config.json -r pil      # PIL �
 
   "lowerThirds": [
     {
-      "name": "张三",
-      "role": "首席科学家",
-      "company": "AI 研究院",
+      "name": "John Doe",
+      "role": "Chief Scientist",
+      "company": "AI Research Lab",
       "startMs": 1000,
       "durationMs": 5000
     }
@@ -225,7 +225,7 @@ python src/video_processor.py video.mp4 subs.srt config.json -r pil      # PIL �
   "chapterTitles": [
     {
       "number": "Part 1",
-      "title": "AI 的发展历程",
+      "title": "The Journey of AI",
       "subtitle": "The History of AI Development",
       "startMs": 0,
       "durationMs": 4000
@@ -234,7 +234,7 @@ python src/video_processor.py video.mp4 subs.srt config.json -r pil      # PIL �
 
   "keyPhrases": [
     {
-      "text": "AI 发展是平滑曲线",
+      "text": "AI Development is Smooth Curve",
       "style": "emphasis",
       "startMs": 2630,
       "endMs": 5500
@@ -245,7 +245,7 @@ python src/video_processor.py video.mp4 subs.srt config.json -r pil      # PIL �
     {
       "chinese": "摩尔定律",
       "english": "Moore's Law",
-      "description": "集成电路晶体管数量每18-24个月翻一番",
+      "description": "Number of transistors doubles every 18-24 months",
       "firstAppearanceMs": 37550,
       "displayDurationSeconds": 6
     }
@@ -253,8 +253,8 @@ python src/video_processor.py video.mp4 subs.srt config.json -r pil      # PIL �
 
   "quotes": [
     {
-      "text": "AI 的发展是一个非常平滑的指数曲线",
-      "author": "— 张三",
+      "text": "AI development is a very smooth exponential curve",
+      "author": "— John Doe",
       "startMs": 30000,
       "durationMs": 5000
     }
@@ -262,10 +262,10 @@ python src/video_processor.py video.mp4 subs.srt config.json -r pil      # PIL �
 
   "stats": [
     {
-      "prefix": "增长率 ",
+      "prefix": "Growth Rate ",
       "number": 240,
       "unit": "%",
-      "label": "计算能力年增长",
+      "label": "Annual Computing Power Growth",
       "startMs": 45000,
       "durationMs": 4000
     }
@@ -273,11 +273,11 @@ python src/video_processor.py video.mp4 subs.srt config.json -r pil      # PIL �
 
   "bulletPoints": [
     {
-      "title": "核心观点",
+      "title": "Key Takeaways",
       "points": [
-        "AI 发展是平滑的指数曲线",
-        "类似摩尔定律的智能增长",
-        "没有突然的奇点时刻"
+        "AI development is smooth exponential curve",
+        "Similar to Moore's Law intelligence growth",
+        "No sudden singularity moment"
       ],
       "startMs": 50000,
       "durationMs": 6000
@@ -287,7 +287,7 @@ python src/video_processor.py video.mp4 subs.srt config.json -r pil      # PIL �
   "socialBars": [
     {
       "platform": "twitter",
-      "label": "关注我们",
+      "label": "Follow us",
       "handle": "@ai_research",
       "startMs": 52000,
       "durationMs": 8000
@@ -298,39 +298,40 @@ python src/video_processor.py video.mp4 subs.srt config.json -r pil      # PIL �
 
 </details>
 
-### 组件参数速查
+### Component Parameters Quick Reference
 
-| 组件 | 必需参数 | 可选参数 | 说明 |
-|------|---------|---------|------|
-| 人物条 | name, role, company, startMs | durationMs (默认5s) | 显示嘉宾信息 |
-| 章节标题 | number, title, startMs | subtitle, durationMs | 话题分段 |
-| 花字 | text, startMs, endMs | style, position | **text 必须是短语** |
-| 名词卡片 | chinese, english, firstAppearanceMs | description, displayDurationSeconds | 术语解释 |
-| 金句 | text, author, startMs | durationMs, position | 精彩观点 |
-| 数据 | number, label, startMs | prefix, unit, durationMs | 数字展示 |
-| 要点 | title, points, startMs | durationMs | 列表总结 |
-| 社交条 | platform, handle, startMs | label, durationMs | 关注引导 |
+| Component | Required | Optional | Notes |
+|-----------|----------|----------|-------|
+| Lower Third | name, role, company, startMs | durationMs (default 5s) | Guest information |
+| Chapter Title | number, title, startMs | subtitle, durationMs | Topic segmentation |
+| Key Phrase | text, startMs, endMs | style, position | **text must be phrase** |
+| Term Card | chinese, english, firstAppearanceMs | description, displayDurationSeconds | Terminology explanation |
+| Quote | text, author, startMs | durationMs, position | Memorable quotes |
+| Stats | number, label, startMs | prefix, unit, durationMs | Number display |
+| Bullet Points | title, points, startMs | durationMs | List summary |
+| Social Bar | platform, handle, startMs | label, durationMs | Follow CTA |
 
-> ⚠️ **花字使用规范**：text 必须是短语（如"AI发展是平滑曲线"），不能是单词（如"人工智能"）。单词应使用名词卡片。
+> ⚠️ **Key Phrase Usage**: text must be a phrase (e.g., "AI Development is Smooth Curve"), not a single word (e.g., "Artificial Intelligence"). Use term cards for single words.
 
 ---
 
-## 🗂️ 项目结构
+## 🗂️ Project Structure
 
 ```
 video-wrapper/
-├── 📄 SKILL.md                  # Claude Skill 定义
-├── 📄 README.md                 # 本文档
-├── 📄 ARCHITECTURE.md           # 详细架构说明
-├── 📄 requirements.txt          # Python 依赖
-├── 📁 src/                      # 源代码
-│   ├── video_processor.py       # 主处理流程
-│   ├── browser_renderer.py      # Playwright 渲染器
-│   ├── content_analyzer.py      # AI 内容分析
-│   ├── fancy_text.py            # PIL 花字渲染
-│   ├── term_card.py             # PIL 卡片渲染
-│   └── animations.py            # 动画函数库
-├── 📁 templates/                # HTML 模板
+├── 📄 SKILL.md                  # Claude Skill definition
+├── 📄 README.md                 # This document (English)
+├── 📄 README_CN.md              # Chinese documentation
+├── 📄 ARCHITECTURE.md           # Detailed architecture
+├── 📄 requirements.txt          # Python dependencies
+├── 📁 src/                      # Source code
+│   ├── video_processor.py       # Main processing flow
+│   ├── browser_renderer.py      # Playwright renderer
+│   ├── content_analyzer.py      # AI content analysis
+│   ├── fancy_text.py            # PIL key phrase rendering
+│   ├── term_card.py             # PIL card rendering
+│   └── animations.py            # Animation functions
+├── 📁 templates/                # HTML templates
 │   ├── fancy-text.html
 │   ├── term-card.html
 │   ├── lower-third.html
@@ -340,69 +341,69 @@ video-wrapper/
 │   ├── bullet-points.html
 │   ├── social-bar.html
 │   └── video-config.json.template
-└── 📁 static/                   # 静态资源
-    ├── css/                     # 主题样式
+└── 📁 static/                   # Static assets
+    ├── css/                     # Theme styles
     │   ├── effects.css
     │   ├── theme-notion.css
     │   ├── theme-cyberpunk.css
     │   ├── theme-apple.css
     │   └── theme-aurora.css
     └── js/
-        └── anime.min.js         # 动画引擎
+        └── anime.min.js         # Animation engine
 ```
 
 ---
 
-## ❓ 常见问题
+## ❓ FAQ
 
 <details>
-<summary><strong>Q: Playwright 安装失败？</strong></summary>
+<summary><strong>Q: Playwright installation failed?</strong></summary>
 
 ```bash
-# 确保 Python 版本 >= 3.8
+# Ensure Python version >= 3.8
 pip install playwright
 playwright install chromium
 
-# macOS 可能需要移除隔离标记
+# macOS may need to remove quarantine flag
 xattr -r -d com.apple.quarantine ~/.cache/ms-playwright
 
-# 验证安装
+# Verify installation
 playwright --version
 ```
 
 </details>
 
 <details>
-<summary><strong>Q: 处理速度太慢？</strong></summary>
+<summary><strong>Q: Processing too slow?</strong></summary>
 
-**优化建议**：
-1. 使用 PIL 渲染器：`-r pil`（效果略简单但速度快 2-3 倍）
-2. 降低视频分辨率（从 1080p 降至 720p）
-3. 分段处理长视频（每次处理 5-10 分钟）
-4. 减少组件数量（只保留必要的）
-
-</details>
-
-<details>
-<summary><strong>Q: 内存不足？</strong></summary>
-
-**解决方案**：
-1. 关闭其他应用释放内存
-2. 分段处理长视频
-3. 使用更低的分辨率（720p 或 480p）
-4. 减少同时渲染的组件数量
-5. 使用 PIL 渲染器（内存占用更小）
+**Optimization Tips**:
+1. Use PIL renderer: `-r pil` (simpler but 2-3x faster)
+2. Lower video resolution (1080p → 720p)
+3. Process long videos in segments (5-10 min chunks)
+4. Reduce component count (keep only essentials)
 
 </details>
 
 <details>
-<summary><strong>Q: 字体显示异常？</strong></summary>
+<summary><strong>Q: Out of memory?</strong></summary>
 
-确保系统已安装中文字体：
+**Solutions**:
+1. Close other applications to free memory
+2. Process long videos in segments
+3. Use lower resolution (720p or 480p)
+4. Reduce number of simultaneous components
+5. Use PIL renderer (smaller memory footprint)
+
+</details>
+
+<details>
+<summary><strong>Q: Font display issues?</strong></summary>
+
+Ensure Chinese fonts are installed:
 
 ```bash
-# macOS - 自带 PingFang SC
-# 无需额外安装
+# macOS - PingFang SC included
+# No additional installation needed
 
 # Ubuntu/Debian
 sudo apt-get install fonts-noto-cjk
@@ -410,60 +411,60 @@ sudo apt-get install fonts-noto-cjk
 # CentOS/RHEL
 sudo yum install google-noto-sans-cjk-fonts
 
-# 验证字体
+# Verify fonts
 fc-list :lang=zh
 ```
 
 </details>
 
 <details>
-<summary><strong>Q: 如何自定义主题？</strong></summary>
+<summary><strong>Q: How to customize themes?</strong></summary>
 
-1. 复制现有主题 CSS 文件
-2. 修改 CSS 变量
-3. 在配置中指定新主题名
+1. Copy existing theme CSS file
+2. Modify CSS variables
+3. Specify new theme name in config
 
-详见 [ARCHITECTURE.md](./ARCHITECTURE.md#添加新主题)
+See [ARCHITECTURE.md](./ARCHITECTURE.md#adding-new-themes) for details
 
 </details>
 
 ---
 
-## 🔧 技术栈
+## 🔧 Tech Stack
 
-| 层级 | 技术 | 说明 |
-|------|------|------|
-| **视觉渲染** | HTML + CSS + Anime.js | 通过 Playwright 浏览器截图 |
-| **视频合成** | MoviePy | Python 视频编辑库 |
-| **动画引擎** | Anime.js | Spring 物理动画 |
-| **备用渲染** | Python PIL | 纯 Python 图像处理 |
-| **内容分析** | AI 分析 | 自动识别关键信息 |
+| Layer | Technology | Description |
+|-------|-----------|-------------|
+| **Visual Rendering** | HTML + CSS + Anime.js | Screenshot via Playwright browser |
+| **Video Compositing** | MoviePy | Python video editing library |
+| **Animation Engine** | Anime.js | Spring physics animations |
+| **Fallback Rendering** | Python PIL | Pure Python image processing |
+| **Content Analysis** | AI Analysis | Auto-identify key information |
 
-详细架构说明请查看 [ARCHITECTURE.md](./ARCHITECTURE.md)
-
----
-
-## 📚 相关资源
-
-- [Claude Skills 文档](https://docs.anthropic.com/claude/docs)
-- [MoviePy 文档](https://zulko.github.io/moviepy/)
-- [Playwright 文档](https://playwright.dev/python/)
-- [Anime.js 文档](https://animejs.com/)
+Detailed architecture available in [ARCHITECTURE.md](./ARCHITECTURE.md)
 
 ---
 
-## 🤝 贡献
+## 📚 Resources
 
-欢迎提交 Issue 和 Pull Request！
-
-在提交 PR 前，请确保：
-- ✅ 代码风格符合项目规范
-- ✅ 添加了必要的测试
-- ✅ 更新了相关文档
+- [Claude Skills Documentation](https://docs.anthropic.com/claude/docs)
+- [MoviePy Documentation](https://zulko.github.io/moviepy/)
+- [Playwright Documentation](https://playwright.dev/python/)
+- [Anime.js Documentation](https://animejs.com/)
 
 ---
 
-## 📄 许可证
+## 🤝 Contributing
+
+Issues and Pull Requests are welcome!
+
+Before submitting a PR, please ensure:
+- ✅ Code style follows project conventions
+- ✅ Added necessary tests
+- ✅ Updated relevant documentation
+
+---
+
+## 📄 License
 
 [MIT License](./LICENSE)
 
@@ -471,8 +472,8 @@ fc-list :lang=zh
 
 <div align="center">
 
-**由 [Claude](https://claude.ai) 强力驱动**
+**Powered by [Claude](https://claude.ai)**
 
-如果觉得有用，请给个 ⭐️ Star！
+If you find this useful, please give it a ⭐️ Star!
 
 </div>
